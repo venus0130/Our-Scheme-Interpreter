@@ -16,7 +16,7 @@
 
 using namespace std;
 
-// type2 = µ¹¦L¾ğªº'    type3 = ¥L¬O³Qdefineªº  type4 = defineªº°_©l¤H  
+// type2 = çµ¦å°æ¨¹çš„'    type3 = ä»–æ˜¯è¢«defineçš„  type4 = defineçš„èµ·å§‹äºº  
 struct DataTree {
   string str, type4  ;
   string type, type2, type3 ;
@@ -34,17 +34,17 @@ struct Data {
 };
 
 struct Define {
-  string temp; // ®e¾¹ 
-  string object ; // ¼È¦sªºª««~ 
+  string temp; // å®¹å™¨ 
+  string object ; // æš«å­˜çš„ç‰©å“ 
   string type, type4;
 };
 
-// string mFileName = "test.txt" ; // ÅªÀÉ¥Î  
-// fstream cin ; // ÅªÀÉ¥Î  
-Data gtest ; // ÅªÀÉ¥Î 
-Data gtreeTemp ; // ¼È¦sµ¹Treeªºstr 
+// string mFileName = "test.txt" ; // è®€æª”ç”¨  
+// fstream cin ; // è®€æª”ç”¨  
+Data gtest ; // è®€æª”ç”¨ 
+Data gtreeTemp ; // æš«å­˜çµ¦Treeçš„str 
 bool gcorrectFileContent = false ; // input END-OF-FILE
-int grun = 0 ; // ¶]¨ì¦¹°}¦Cªº­ş­Óch 
+int grun = 0 ; // è·‘åˆ°æ­¤é™£åˆ—çš„å“ªå€‹ch 
 int gline = -1, gcolumn = 1;
 int gcharacter ;
 bool gisDoubleQuoteFunc = false ;
@@ -58,7 +58,7 @@ bool gIsBreakForMainQuote = false ;
 class Project {
 public:
 
-  vector<Data> *mList; // ¦s¦¹¦W³æ 
+  vector<Data> *mList; // å­˜æ­¤åå–® 
   vector<Data> *mcondList ;
   void Cond_fuc() {
     mcondList = new vector<Data>;
@@ -86,11 +86,11 @@ public:
           isBackFlash++ ;
         } // for
 
-        if ( isBackFlash == 0 || isBackFlash % 2 == 0 ) { // ¨S¥²­nªº¤Ï±×  
+        if ( isBackFlash == 0 || isBackFlash % 2 == 0 ) { // æ²’å¿…è¦çš„åæ–œ  
           gisDoubleQuoteFunc = true ;
           isBreak = true ;
         } // if
-        else mList->erase( mList->end()-2 ) ; // §R°£ '\' Ä~ÄòÅª  
+        else mList->erase( mList->end()-2 ) ; // åˆªé™¤ '\' ç¹¼çºŒè®€  
         
         isBackFlash = 0 ;
       } // if
@@ -127,11 +127,11 @@ public:
           i++ ;
           cout << '\\' ;
         } // if
-        else if ( str[i+1] == 'n' ) {    // ¥u¦³¤@­Ó¤Ï±×¥B«á­±¬On 
+        else if ( str[i+1] == 'n' ) {    // åªæœ‰ä¸€å€‹åæ–œä¸”å¾Œé¢æ˜¯n 
           i++ ;
           cout << endl ; 
         } // else if()
-        else if ( str[i+1] == 't' ) { // ¥u¦³¤@­Ó¤Ï±×¥B«á­±¬Ot
+        else if ( str[i+1] == 't' ) { // åªæœ‰ä¸€å€‹åæ–œä¸”å¾Œé¢æ˜¯t
           i++ ;
           cout << '\t' ; 
         } // else if()
@@ -158,11 +158,11 @@ public:
             i++ ;
             cout << '\\' ;
           } // if
-          else if ( mList->at( i+1 ).ch == 'n' ) {    // ¥u¦³¤@­Ó¤Ï±×¥B«á­±¬On 
+          else if ( mList->at( i+1 ).ch == 'n' ) {    // åªæœ‰ä¸€å€‹åæ–œä¸”å¾Œé¢æ˜¯n 
             i++ ;
             cout << endl ; 
           } // else if()
-          else if ( mList->at( i+1 ).ch == 't' ) { // ¥u¦³¤@­Ó¤Ï±×¥B«á­±¬Ot
+          else if ( mList->at( i+1 ).ch == 't' ) { // åªæœ‰ä¸€å€‹åæ–œä¸”å¾Œé¢æ˜¯t
             i++ ;
             cout << '\t' ; 
           } // else if()
@@ -194,7 +194,7 @@ public:
             cout << endl << "> " << check -> object << endl;  
           else {
             mList->clear() ;
-            // §âcheck->object[]¸Ìªº©Ò¦³ªF¦è ©ñ¶imList ,
+            // æŠŠcheck->object[]è£¡çš„æ‰€æœ‰æ±è¥¿ æ”¾é€²mList ,
             
             stringstream ss( check->object );
             stringstream sss( check->type );
@@ -218,7 +218,7 @@ public:
               
             } // while
             /*
-            // °µ¾ğªº¹Lµ{  ¦]¬°define«áªºªF¦è¥i¯à¬Ofunc  
+            // åšæ¨¹çš„éç¨‹  å› ç‚ºdefineå¾Œçš„æ±è¥¿å¯èƒ½æ˜¯func  
             int k = 0 ; 
             MainForQuote( k ) ;
             */
@@ -255,7 +255,7 @@ public:
   } // PrintSExp1()
 
   
-  void Semi() { // ²Ä¤@­Ó¦r¤¸¬O¤À¸¹ ¤£¥Î¦L¥X 
+  void Semi() { // ç¬¬ä¸€å€‹å­—å…ƒæ˜¯åˆ†è™Ÿ ä¸ç”¨å°å‡º 
   
     while ( gtest.ch != '\n' && gtest.ch != EOF ) {
       gtest.ch = cin.get() ; 
@@ -266,7 +266,7 @@ public:
     
   } // Semi()
   
-  void SemiForTree() { // ²Ä¤@­Ó¦r¤¸¬O¤À¸¹ ¤£¥Î¦L¥X 
+  void SemiForTree() { // ç¬¬ä¸€å€‹å­—å…ƒæ˜¯åˆ†è™Ÿ ä¸ç”¨å°å‡º 
   
     while ( gtest.ch != '\n' && gtest.ch != EOF ) {
       gtest.ch = cin.get() ; 
@@ -324,20 +324,20 @@ public:
   
   void Sign() {
     
-    int haveDot = 0 ; // --- ¦³¤p¼ÆÂI(¸É¹s¶i¦ì) 
-    bool haveStranger = false ; // ¦³©Ç©Çªº¦r¤¸²V¤J¡A¤£¬O¼Æ¦r©Î¯BÂI¼Æ 
-    bool haveNumber = false ; //  ½T©w¦³¼Æ¦r 
+    int haveDot = 0 ; // --- æœ‰å°æ•¸é»(è£œé›¶é€²ä½) 
+    bool haveStranger = false ; // æœ‰æ€ªæ€ªçš„å­—å…ƒæ··å…¥ï¼Œä¸æ˜¯æ•¸å­—æˆ–æµ®é»æ•¸ 
+    bool haveNumber = false ; //  ç¢ºå®šæœ‰æ•¸å­— 
         
-    string s = "" ; // ¥ı§âmList->at( n ).chÂà¦¨string«¬§O!!! 
+    string s = "" ; // å…ˆæŠŠmList->at( n ).chè½‰æˆstringå‹åˆ¥!!! 
     for ( int n = 0 ; n < mList->size() ; n++ ) {
       s = s + mList->at( n ).ch ;
     } // for
       
-    const char*TEMP = s.c_str(); // §âstringÂà¦¨const char«¬§O!!! 
+    const char*TEMP = s.c_str(); // æŠŠstringè½‰æˆconst charå‹åˆ¥!!! 
       
     for ( int n = 0 ; n < mList->size() ; n++ ) {
-      if ( mList->at( n ).ch == '.' ) haveDot++ ;  // §PÂ_¦³µL¤p¼ÆÂI 
-      if ( isdigit( mList->at( n ).ch ) ) haveNumber = true ; // ½T©w¦³¼Æ¦r 
+      if ( mList->at( n ).ch == '.' ) haveDot++ ;  // åˆ¤æ–·æœ‰ç„¡å°æ•¸é» 
+      if ( isdigit( mList->at( n ).ch ) ) haveNumber = true ; // ç¢ºå®šæœ‰æ•¸å­— 
     } // for
       
     for ( int n = 1 ; n < mList->size() ; n++ ) {  
@@ -345,31 +345,31 @@ public:
     } // for
     
     if ( haveDot == 1 && !haveStranger && haveNumber ) {
-      double decimal = atof( TEMP ) ; // ¦A§âconst charÂà¦¨double«¬§O!!! 
+      double decimal = atof( TEMP ) ; // å†æŠŠconst charè½‰æˆdoubleå‹åˆ¥!!! 
       cout << endl << "> " << fixed  << setprecision( 3 ) << decimal << endl ;
-    } // if() ¦³¤p¼ÆÂI 
+    } // if() æœ‰å°æ•¸é» 
     else if ( haveDot > 1 || haveStranger || !haveNumber ) {
       cout << endl << "> " << TEMP << endl ; 
     } // else if
-    // else if() ¦³«D¼Æ¦r©Î¤p¼ÆªºªF¦è¦b²Ä¤@¦ì«á
+    // else if() æœ‰éæ•¸å­—æˆ–å°æ•¸çš„æ±è¥¿åœ¨ç¬¬ä¸€ä½å¾Œ
     else { 
       int numbers = atof( TEMP ) ;
       cout << endl << "> " << numbers << endl ;
-    } // else ¾ã¼Æ 
+    } // else æ•´æ•¸ 
       
   } // Sign()
   
   bool SignForTree() {
     
-    int haveDot = 0 ; // --- ¦³¤p¼ÆÂI(¸É¹s¶i¦ì) 
-    bool haveStranger = false ; // ¦³©Ç©Çªº¦r¤¸²V¤J¡A¤£¬O¼Æ¦r©Î¯BÂI¼Æ 
-    bool haveNumber = false ; //  ½T©w¦³¼Æ¦r 
+    int haveDot = 0 ; // --- æœ‰å°æ•¸é»(è£œé›¶é€²ä½) 
+    bool haveStranger = false ; // æœ‰æ€ªæ€ªçš„å­—å…ƒæ··å…¥ï¼Œä¸æ˜¯æ•¸å­—æˆ–æµ®é»æ•¸ 
+    bool haveNumber = false ; //  ç¢ºå®šæœ‰æ•¸å­— 
       
-    const char*TEMP = gtreeTemp.str.c_str(); // §âstringÂà¦¨const char«¬§O!!! 
+    const char*TEMP = gtreeTemp.str.c_str(); // æŠŠstringè½‰æˆconst charå‹åˆ¥!!! 
       
     for ( int n = 0 ; n < gtreeTemp.str.size() ; n++ ) {
-      if ( gtreeTemp.str[n] == '.' ) haveDot++ ;  // §PÂ_¦³µL¤p¼ÆÂI 
-      if ( isdigit( gtreeTemp.str[n] ) ) haveNumber = true ; // ½T©w¦³¼Æ¦r 
+      if ( gtreeTemp.str[n] == '.' ) haveDot++ ;  // åˆ¤æ–·æœ‰ç„¡å°æ•¸é» 
+      if ( isdigit( gtreeTemp.str[n] ) ) haveNumber = true ; // ç¢ºå®šæœ‰æ•¸å­— 
     } // for
       
     for ( int n = 1 ; n < gtreeTemp.str.size() ; n++ ) {  
@@ -377,16 +377,16 @@ public:
     } // for
     
     if ( haveDot == 1 && !haveStranger && haveNumber ) {
-      double decimal = atof( TEMP ) ; // §âconst charÂà¦¨double«¬§O!!! 
+      double decimal = atof( TEMP ) ; // æŠŠconst charè½‰æˆdoubleå‹åˆ¥!!! 
       char buffer[20]; // Adjust the buffer size accordingly to accommodate your string
       sprintf( buffer, "%.3f", decimal );
       string result( buffer );
       
       gtreeTemp.str = result ;
       return true ;
-    } // if() ¦³¤p¼ÆÂI 
+    } // if() æœ‰å°æ•¸é» 
     else if ( haveDot > 1 || haveStranger || !haveNumber ) return false ; 
-    // else if() ¦³«D¼Æ¦r©Î¤p¼ÆªºªF¦è¦b²Ä¤@¦ì«á
+    // else if() æœ‰éæ•¸å­—æˆ–å°æ•¸çš„æ±è¥¿åœ¨ç¬¬ä¸€ä½å¾Œ
     else { 
       int numbers = atof( TEMP ) ;
       stringstream ss;
@@ -394,7 +394,7 @@ public:
       gtreeTemp.str = ss.str();
 
       return true ;
-    } // else ¾ã¼Æ 
+    } // else æ•´æ•¸ 
       
   } // SignForTree()
   
@@ -404,7 +404,7 @@ public:
     bool isbreak = false ;
     
     while ( ( left_bracket == -1 || left_bracket != right_bracket ) 
-            && gtest.ch != EOF && !isbreak ) { // ¥ş³¡Åª¶i¨Ó 
+            && gtest.ch != EOF && !isbreak ) { // å…¨éƒ¨è®€é€²ä¾† 
       
       if ( gtest.ch == '\'' ) {
         gtreeTemp.column = gcolumn, gtreeTemp.line = gline ;
@@ -562,7 +562,7 @@ public:
       
     } // for
   
-    for ( int i = 0 ; i < mList->size() ; i++ ) { // .«á­±¦b¹J¨ì¬A¸¹«e¤S¦³. 
+    for ( int i = 0 ; i < mList->size() ; i++ ) { // .å¾Œé¢åœ¨é‡åˆ°æ‹¬è™Ÿå‰åˆæœ‰. 
         
       if ( mList->at( i ).type == "dot" ) { // ..
         if ( i+1 < mList->size() ) {
@@ -624,7 +624,7 @@ public:
       
     } // for
     
-    for ( int i = 0 ; i < mList->size() ; i++ ) { // .«á­±¥u¯à¦³¤@­Óstring symbol digit () 
+    for ( int i = 0 ; i < mList->size() ; i++ ) { // .å¾Œé¢åªèƒ½æœ‰ä¸€å€‹string symbol digit () 
       
       if ( i+1 < mList->size() && mList->at( i+1 ).type == "quote" ) return true ; // .'
       
@@ -676,7 +676,7 @@ public:
 
   } // IsCorrectBracket()
   
-  bool DeleteDotBracketAndTNil() { // .(xxxx) = xxxx   . #t = ªÅ    . nil = ªÅ     ()
+  bool DeleteDotBracketAndTNil() { // .(xxxx) = xxxx   . #t = ç©º    . nil = ç©º     ()
     
     int forDeleteBracket = 0 ;
     
@@ -774,13 +774,13 @@ public:
           isBackFlash++ ;
         } // for
 
-        if ( isBackFlash == 0 || isBackFlash % 2 == 0 ) { // ¨S¥²­nªº¤Ï±×  
+        if ( isBackFlash == 0 || isBackFlash % 2 == 0 ) { // æ²’å¿…è¦çš„åæ–œ  
           // gisDoubleQuoteFunc = true ;
           isBreak = true ;
         } // if
         else {
           int k = gtreeTemp.str.size() - 1 ;
-          gtreeTemp.str.erase( k-1, 1 ) ; // §R°£ '\' Ä~ÄòÅª  
+          gtreeTemp.str.erase( k-1, 1 ) ; // åˆªé™¤ '\' ç¹¼çºŒè®€  
         } // else 
         
         isBackFlash = 0 ;
@@ -810,7 +810,7 @@ public:
 
     i++;
 
-    // ¦pªG¦r¤¸¬O¥ª¬A¸¹¡A«Ø¥ß¥ª¤l¾ğ 
+    // å¦‚æœå­—å…ƒæ˜¯å·¦æ‹¬è™Ÿï¼Œå»ºç«‹å·¦å­æ¨¹ 
     if ( mList->at( i ).type == "left_bracket" || mList->at( i ).type == "quote" ) { 
 
       if ( mList->at( i ).type == "quote" ) mTree->type2 = "quote" ;
@@ -824,7 +824,7 @@ public:
     
     } // if
 
-    // ¦s©ñ 
+    // å­˜æ”¾ 
     if ( i < mList->size() && mList->at( i ).type != "left_bracket" && mList->at( i ).type != "quote" 
          && mList->at( i ).type != "right_bracket" ) {
       mTree->str = mList->at( i ).str;
@@ -833,7 +833,7 @@ public:
       if ( i+1 >= mList->size() ) return ;
     } // if
 
-    // ¦pªG¦r¤¸¬O¥k¬A¸¹¡A¦^¨ì¤W¤@­Ó¥ª¬A¸¹ 
+    // å¦‚æœå­—å…ƒæ˜¯å³æ‹¬è™Ÿï¼Œå›åˆ°ä¸Šä¸€å€‹å·¦æ‹¬è™Ÿ 
     if ( i < mList->size() && mList->at( i ).type == "right_bracket" ) {
       mTree->right = new DataTree();
       mTree->right->left = NULL ;
@@ -847,7 +847,7 @@ public:
     } // if
 
     if ( i >= mList->size() ) return ;
-    // «Ø¥ß¥k¤l¾ğ 
+    // å»ºç«‹å³å­æ¨¹ 
     else {
       if ( mList->at( i ).type == "left_bracket" || mList->at( i ).type == "quote" ) i-- ;
       mTree->right = new DataTree();
@@ -864,7 +864,7 @@ public:
       return;
     } // if
     
-    // ¥ı»¼°j¨ì³Ì¥ª¸`ÂI 
+    // å…ˆéè¿´åˆ°æœ€å·¦ç¯€é» 
     if ( mTree->left != NULL ) {
         
       while ( now < mTree->column ) {  // mTree->left->column-2
@@ -885,7 +885,7 @@ public:
     
     PrintTree( mTree->left, now );
 
-    // ¶}©l¦L¥X¸`ÂIªº¼Æ­È 
+    // é–‹å§‹å°å‡ºç¯€é»çš„æ•¸å€¼ 
     if ( mTree != NULL && mTree->str != "" ) {
       while ( now < mTree->column ) {
         now++ ;
@@ -903,7 +903,7 @@ public:
       
     } // if
 
-    // »¼°j¦L¥X¥k¤l¾ğ 
+    // éè¿´å°å‡ºå³å­æ¨¹ 
     PrintTree( mTree->right, now );
     
     if ( mTree != NULL && mTree->right != NULL && mTree->right->right == NULL ) {
@@ -920,7 +920,7 @@ public:
 
   } // PrintTree()
    
-  void DoQuote( int start, int end ) { // À°qupte¤ºªºªFªF¼Ğ°O°_¨Ó 
+  void DoQuote( int start, int end ) { // å¹«qupteå…§çš„æ±æ±æ¨™è¨˜èµ·ä¾† 
     
     for ( int i = start ; i < end ; i++ ) {
       
@@ -930,7 +930,7 @@ public:
       if ( mList->at( j ).type == "quote" ) {
         j++ ;
         
-        for ( ; !isbreak && j < end ; j++ ) {  // '«á­±ªºªF¦èÄİ©ó¥L  
+        for ( ; !isbreak && j < end ; j++ ) {  // 'å¾Œé¢çš„æ±è¥¿å±¬æ–¼ä»–  
           if ( mList->at( j ).type == "quote" ) ;
           else if ( mList->at( j ).type == "left_bracket" ) bracket++ ;
           else if ( mList->at( j ).type == "right_bracket" ) bracket-- ;
@@ -965,9 +965,9 @@ public:
   void DoDefine() {
     gdd = true ;
     Define* objPtr = new Define();
-    objPtr -> temp = mList->at( 2 ).str; // ®e¾¹ 
+    objPtr -> temp = mList->at( 2 ).str; // å®¹å™¨ 
     
-    bool definedefine = false ; // ­«½Ædefine  
+    bool definedefine = false ; // é‡è¤‡define  
     
     for ( int i = 0 ; gdefine.size() > 0 && i < gdefine.size() ; i++ ) {
       Define* search = gdefine[i];
@@ -975,10 +975,10 @@ public:
         definedefine = true ;
         gdefine.erase( gdefine.begin()+i );
       } // if
-    } // for // °²³]¤§«ea³Qdefine¹L¤F¡A¤S­«·sdefine¤@¦¸¡A­n§R±¼¤§«eªº 
+    } // for // å‡è¨­ä¹‹å‰aè¢«defineéäº†ï¼Œåˆé‡æ–°defineä¸€æ¬¡ï¼Œè¦åˆªæ‰ä¹‹å‰çš„ 
       
     if ( mList->at( 3 ).str != "(" ) {
-      objPtr -> object = mList->at( 3 ).str; // ¤º®e = ®e¾¹ 
+      objPtr -> object = mList->at( 3 ).str; // å…§å®¹ = å®¹å™¨ 
       objPtr -> type = mList->at( 3 ).type ;
       if ( mList->at( 3 ).type4 != "" ) objPtr -> type4 = mList->at( 3 ).type4;
       else objPtr -> type4 = mList->at( 2 ).str;
@@ -998,7 +998,7 @@ public:
         type += " ";
         
         if ( mList->at( j ).str != "'" && left == right ) isbreak = true ;
-      } // for // gdefine a (...) or '(...)ªº±¡ªp 
+      } // for // gdefine a (...) or '(...)çš„æƒ…æ³ 
       
       objPtr -> object = special ;
       objPtr -> type = type ;
@@ -1007,7 +1007,7 @@ public:
       // cout << "6" << mList->at( 3 ).type4 ;
     } // else 
     
-    for ( int i = 0 ; i < gdefine.size() ; i++ ) { // ­«½Ædefine (define a 5) (define c a ) c = 5 
+    for ( int i = 0 ; i < gdefine.size() ; i++ ) { // é‡è¤‡define (define a 5) (define c a ) c = 5 
       
       if ( objPtr -> object == gdefine[i]->temp ) {
         definedefine = false ;
@@ -1039,7 +1039,7 @@ public:
       
       int j = k, bracket = 0 ;
       bool isbreak = false ;
-      for ( ; !isbreak && j < mList->size() ; j++ ) {  // ¤@ª½¨ì'¹ïÀ³ªº) ¤£°µ¨Æ  
+      for ( ; !isbreak && j < mList->size() ; j++ ) {  // ä¸€ç›´åˆ°'å°æ‡‰çš„) ä¸åšäº‹  
         if ( mList->at( j ).str == "\'" ) bracket++ ;
         else if ( mList->at( j ).str == "(" ) bracket++ ;
         else if ( mList->at( j ).str == ")" ) bracket-- ;
@@ -1068,7 +1068,7 @@ public:
       if ( k+1 < mList->size() ) MainForQuote( k+1 ) ;
       
     } // if
-    else if ( mList->at( k ).str == "quote" ) { // ¸ò¤W­±¦P²z  
+    else if ( mList->at( k ).str == "quote" ) { // è·Ÿä¸Šé¢åŒç†  
       ghaveDoQuote = true ;
       int end = Quote( k ) ;
       
@@ -1294,12 +1294,12 @@ public:
       } // else if
       else {
         
-        // °µprocedure
+        // åšprocedure
         if ( k+1 < mList->size() ) MainForQuote( k+1 ) ;
         
       } // else
       
-      if ( checkIfNeedDoFuncAgain ) { // «e­±°µ§¹«á¦^¶ÇªºªF¦è¬O¤@­Ófunc¦W¦r¡A´N­n¦A°µfunc  
+      if ( checkIfNeedDoFuncAgain ) { // å‰é¢åšå®Œå¾Œå›å‚³çš„æ±è¥¿æ˜¯ä¸€å€‹funcåå­—ï¼Œå°±è¦å†åšfunc  
         k -= 1 ;
         if ( k-1 >= 0 && mList->at( k-1 ).str == "(" ) {
           
@@ -1521,14 +1521,14 @@ public:
       temp.type3 = mList->at( i ).type3, temp.type4 = mList->at( i ).type4 ;
       
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (or ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (or çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (or .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (or .....) çš„ )  
         
       } // while
       
@@ -1612,14 +1612,14 @@ public:
     if ( mList->at( i ).str == "nil" ) {
       
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (and ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (and çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (and .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (and .....) çš„ )  
         
       } // while
       
@@ -1727,7 +1727,7 @@ public:
       else if ( mList->at( i ).str == ")" ) {
         right++;
         bracket--;
-        if ( temp[temp.size()-1] == ' ' ) temp.erase( temp.end()-1 ); // §R°£ )«eªºªÅ®æ 
+        if ( temp[temp.size()-1] == ' ' ) temp.erase( temp.end()-1 ); // åˆªé™¤ )å‰çš„ç©ºæ ¼ 
         temp += " )";
         type += " right_bracket";  
         type3 += " " + mList->at( i ).type3;    
@@ -1766,7 +1766,7 @@ public:
         type3 = "", type4 = "" ;
       } // if
       
-    } // for  ¦s±ø¥ó   
+    } // for  å­˜æ¢ä»¶   
     
     if ( bList.size() == 1 ) {
       string lastElement = bList[0] ; // 3 4 5
@@ -1777,7 +1777,7 @@ public:
       type = mList->at( i ).type;
       type3 = mList->at( i ).type3;
       type4 = mList->at( i ).type4;
-    } // if (begin 3 4 5) ¨ú5 
+    } // if (begin 3 4 5) å–5 
     
     else {
       ans = bList[bList.size()-2];
@@ -1785,7 +1785,7 @@ public:
       type3 = type3List[type3List.size()-2];
       type4 = type4List[type4List.size()-2];
       
-    } // else  (begin (3 4) (5 6) )  ¨ú(5 6) 
+    } // else  (begin (3 4) (5 6) )  å–(5 6) 
     
     // erase
     bracket = 1 ;
@@ -1861,7 +1861,7 @@ public:
       else if ( mList->at( i ).str == ")" ) {
         right++;
         bracket--;
-        if ( temp[temp.size()-1] == ' ' ) temp.erase( temp.end()-1 ); // §R°£ )«eªºªÅ®æ 
+        if ( temp[temp.size()-1] == ' ' ) temp.erase( temp.end()-1 ); // åˆªé™¤ )å‰çš„ç©ºæ ¼ 
         temp += " )";
         type += " right_bracket";        
         if ( right != left - 1 ) {
@@ -1898,7 +1898,7 @@ public:
         type3 = "", type4 = "" ;
       } // if
       
-    } // for  ¦s±ø¥ó 
+    } // for  å­˜æ¢ä»¶ 
      
      
     if ( ifList.size() == 3 ) {
@@ -1916,7 +1916,7 @@ public:
         type4 = type4List[1];
       } // else
       
-    } // if ¦³nil±ø¥ó 
+    } // if æœ‰nilæ¢ä»¶ 
     
     else if ( ifList.size() == 2 ) {
       if ( ifList[0] == "nil" ) {
@@ -1929,7 +1929,7 @@ public:
         type3 = type3List[1];
         type4 = type4List[1];  
       } // else
-    } // else if ¨Snil±ø¥ó 
+    } // else if æ²’nilæ¢ä»¶ 
     
 
     // erase
@@ -1978,16 +1978,16 @@ public:
   } // If()  
   
   void Cond( int k ) {
-    // ========p1¬O1¡Ae1¬O0============ // 
+    // ========p1æ˜¯1ï¼Œe1æ˜¯0============ // 
     int barcket = 0 ;
     int leftBarck = 0;
     int object = -1;
     int p1 = 0;
     int startCh = k-1;
     Data temp;
-    bool hasBeenCheck = true; // ·í¤@²Õ()ªºp1¤w¸gÀË¬d¹L¬°«Dtrue¡A»°§Ö¶i¤J¤U¤@­Óp1¡A¨ä¥L§OºŞ 
+    bool hasBeenCheck = true; // ç•¶ä¸€çµ„()çš„p1å·²ç¶“æª¢æŸ¥éç‚ºétrueï¼Œè¶•å¿«é€²å…¥ä¸‹ä¸€å€‹p1ï¼Œå…¶ä»–åˆ¥ç®¡ 
     bool isElse = false ;
-    bool startIsbar = true; // ¸Ñ¨M¶i°j°é¤@¶}©l´N¬O¬A¸¹¤£¯à¦A++ªº°İÃD 
+    bool startIsbar = true; // è§£æ±ºé€²è¿´åœˆä¸€é–‹å§‹å°±æ˜¯æ‹¬è™Ÿä¸èƒ½å†++çš„å•é¡Œ 
     bool isExp = false;
     bool thisExpIsNil = false;
     bool isbreak = false ;
@@ -2011,7 +2011,7 @@ public:
             ( mList->at( k ).str == "nil" || mList->at( k ).str == "(" 
               || mList->at( k ).str == "\'" ) ; k++ ) {
         // if ( !thisExpIsNil ) cout << "xx" << k << " " << mList->at( k ).str << endl ;
-        mcondList->clear(); // ªì©l¤Æ 
+        mcondList->clear(); // åˆå§‹åŒ– 
         if ( mList->at( k ).str == "(" ) barcket++;
         else if ( mList->at( k ).str == ")" ) barcket--;
         
@@ -2030,7 +2030,7 @@ public:
           
           hasBeenCheck = true;
           isExp = true;
-          // ==break¨º¦æ¬O¦]¬°·í§A¨ì¤F)«á¡A¶i¤J°j°é¤~·|barcket--¡A³o¼Ë·|Ä~Äò°µ¬O¤£·|¸õ¥X==//
+          // ==breaké‚£è¡Œæ˜¯å› ç‚ºç•¶ä½ åˆ°äº†)å¾Œï¼Œé€²å…¥è¿´åœˆæ‰æœƒbarcket--ï¼Œé€™æ¨£æœƒç¹¼çºŒåšæ˜¯ä¸æœƒè·³å‡º==//
           
           
           for ( ; !isbreak && barcket != 1 ; k++ ) {
@@ -2045,10 +2045,10 @@ public:
               k-- ;
             } // if     
                   
-          } // for ¬°¤F°µ»¼°j¡A§â­n»¼°jªºªF¦è¦s¶i·sªºList¡A¨Ã¥B§R±¼mList¸Ìªº³o¨ÇªF¦è 
+          } // for ç‚ºäº†åšéè¿´ï¼ŒæŠŠè¦éè¿´çš„æ±è¥¿å­˜é€²æ–°çš„Listï¼Œä¸¦ä¸”åˆªæ‰mListè£¡çš„é€™äº›æ±è¥¿ 
           
           isbreak = false ;
-          startIsbar = true; // ªì©l¤Æ 
+          startIsbar = true; // åˆå§‹åŒ– 
           k = k - object;             
         
                         
@@ -2059,7 +2059,7 @@ public:
 
   
         if ( mList->at( k ).str == "nil" ) {
-          k--; // ©t¨àªk!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+          k--; // å­¤å…’æ³•!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
           while ( barcket != 0 ) {
             if ( mList->at( k ).str == "(" && !startIsbar ) barcket++;  
             else if ( mList->at( k ).str == ")" ) barcket--;
@@ -2069,17 +2069,17 @@ public:
           
           thisExpIsNil = true;
           barcket++; 
-          // ­nÁÙ¤@­Óbarcketµ¹¹ï¤è (cond (nil 8) (3 (+ 7 8)))¡Ak¬O(¡A¦ı«İ·|ª½±µk++  
+          // è¦é‚„ä¸€å€‹barcketçµ¦å°æ–¹ (cond (nil 8) (3 (+ 7 8)))ï¼Œkæ˜¯(ï¼Œä½†å¾…æœƒç›´æ¥k++  
         } // if (cond (nil...)(...) )
-        // ====¹J¨ìnil¡Aª½±µ¾ã²Õ§R±¼==== //  
+        // ====é‡åˆ°nilï¼Œç›´æ¥æ•´çµ„åˆªæ‰==== //  
         
 
         // cout << mList->at( k ).str << " "<<k << "xxx"<<endl;
           
 
         if ( barcket == 1 && mList->at( k ).str == "(" ) {          
-          hasBeenCheck = false; // ¤U¤@­Ó k¬Op1 
-          leftBarck = k; // ¼Ğ°OµÛ¥Ø«eªº¥ª¬A¸¹¦ì¸m 
+          hasBeenCheck = false; // ä¸‹ä¸€å€‹ kæ˜¯p1 
+          leftBarck = k; // æ¨™è¨˜è‘—ç›®å‰çš„å·¦æ‹¬è™Ÿä½ç½® 
         } // if
 
         // cout << mList->at( leftBarck+1 ).str<< endl;
@@ -2091,10 +2091,10 @@ public:
           isElse = true ;
         } // if
         */
-        startIsbar = true; // ªì©l¤Æ 
-        hasBeenCheck = false; // ªì©l¤Æ 
-        isExp = false; // ªì©l¤Æ       
-        object = -1; // ªì©l¤Æ   
+        startIsbar = true; // åˆå§‹åŒ– 
+        hasBeenCheck = false; // åˆå§‹åŒ– 
+        isExp = false; // åˆå§‹åŒ–       
+        object = -1; // åˆå§‹åŒ–   
         // cout << k <<" "<< thisExpIsNil << " "<<barcket<<" "<< mList->at( k ).str<<endl;                
         
         if ( !thisExpIsNil ) {
@@ -2103,14 +2103,14 @@ public:
         } // if
               
         thisExpIsNil = false; 
-        // ·í§Ú½T©w§Ú¤£¬O¦]¬°nil¾ã²Õ§R±¼¡Aªí¥Ü§Ú¬O«Dnil¤F¡A¥i¥Hª½±µbreak¡A¥H§K¼vÅTe1 
+        // ç•¶æˆ‘ç¢ºå®šæˆ‘ä¸æ˜¯å› ç‚ºnilæ•´çµ„åˆªæ‰ï¼Œè¡¨ç¤ºæˆ‘æ˜¯éniläº†ï¼Œå¯ä»¥ç›´æ¥breakï¼Œä»¥å…å½±éŸ¿e1 
         
       } // for 
       
       isbreak = false;  
-      // =====================¤W­±¥u¬O¦b³B²zp1========================= // 
-      // =====================¥X¨Óªºp1¥i¯à·|¬O(<78)³oºØªF¦è============ // 
-      // ======================¥B(<78)·|¦ì©ómListªºk¦ì¸m================ // 
+      // =====================ä¸Šé¢åªæ˜¯åœ¨è™•ç†p1========================= // 
+      // =====================å‡ºä¾†çš„p1å¯èƒ½æœƒæ˜¯(<78)é€™ç¨®æ±è¥¿============ // 
+      // ======================ä¸”(<78)æœƒä½æ–¼mListçš„kä½ç½®================ // 
       /*
           for( int n = 0 ; n <mList->size() ; n ++ )
             cout << mList->at(n).str << " " ; 
@@ -2127,20 +2127,20 @@ public:
           if ( mcondList->at( q ).str == mList->at( k ).str ) mList->erase( mList->begin()+k ) ;
         } // for
         
-      } // if  P1¬Oexp 
+      } // if  P1æ˜¯exp 
       else {
         mList->erase( mList->begin()+k ) ;
       } // else
 
  
 
-      // =====¤W­±¦A§âp1±qmList¤¤§R°£¡A¶W¯Å©t¨àªk =====//
+      // =====ä¸Šé¢å†æŠŠp1å¾mListä¸­åˆªé™¤ï¼Œè¶…ç´šå­¤å…’æ³• =====//
       mcondList->clear();
       /*
       if ( isElse ) {
         leftBarck++;
         if ( mList->at( leftBarck ).str == "else" ) 
-          mList->erase( mList->begin()+leftBarck ) ; // §R±¼p1ªºelse
+          mList->erase( mList->begin()+leftBarck ) ; // åˆªæ‰p1çš„else
         if ( mList->at( leftBarck ).str == "(" ) {
           for (  ; !isbreak && barcket != 0 ; leftBarck++ ) {         
             if ( mList->at( leftBarck ).str == "(" ) barcket++;
@@ -2155,7 +2155,7 @@ public:
               isbreak = true ;        
               leftBarck-- ;
             } // if    
-          } // for °²³]°µ¥X¨Ó¬O(7)­n§â(,7,)³£¦s¶i mList->at( k ).str      
+          } // for å‡è¨­åšå‡ºä¾†æ˜¯(7)è¦æŠŠ(,7,)éƒ½å­˜é€² mList->at( k ).str      
           cout <<   temp.str;
           
           isbreak = false ;
@@ -2170,7 +2170,7 @@ public:
       // cout << barcket << "" << k <<endl;
 
       
-      // k = 3; // ¶W©t¨à¡A§Úª½±µÃ©¤@­Óe1ªºÀY³£¬O²Ä¤T®æ 
+      // k = 3; // è¶…å­¤å…’ï¼Œæˆ‘ç›´æ¥çŸ‡ä¸€å€‹e1çš„é ­éƒ½æ˜¯ç¬¬ä¸‰æ ¼ 
 
           
       for ( ; !isbreak && barcket != 0 && !isElse ; k++ ) {
@@ -2183,7 +2183,7 @@ public:
           k-- ;
         } // if
         else {
-          // §R°£
+          // åˆªé™¤
           if ( hasBeenCheck ) {           
   
             if ( mList->at( p1 ).str == "(" ) {
@@ -2202,7 +2202,7 @@ public:
                 
               } // while
               
-            } // if  P1¬Oexp 
+            } // if  P1æ˜¯exp 
             else {
               mList->erase( mList->begin()+p1 ) ;
             } // else
@@ -2210,9 +2210,9 @@ public:
             temp.str = "";
             temp.type = "" ;
             k = p1;
-            // k = 3; // ¶W©t¨à¡A§Úª½±µÃ©¤@­Óe1ªºÀY³£¬O²Ä¤T®æ 
+            // k = 3; // è¶…å­¤å…’ï¼Œæˆ‘ç›´æ¥çŸ‡ä¸€å€‹e1çš„é ­éƒ½æ˜¯ç¬¬ä¸‰æ ¼ 
           } // if 
-          // §R°£
+          // åˆªé™¤
  
 
           if ( mList->at( k ).str == "\'" ) {
@@ -2251,7 +2251,7 @@ public:
               startIsbar = false; 
             
 
-            } // for ¬°¤F°µ»¼°j¡A§â­n»¼°jªºªF¦è¦s¶i·sªºList¡A¨Ã¥B§R±¼mList¸Ìªº³o¨ÇªF¦è 
+            } // for ç‚ºäº†åšéè¿´ï¼ŒæŠŠè¦éè¿´çš„æ±è¥¿å­˜é€²æ–°çš„Listï¼Œä¸¦ä¸”åˆªæ‰mListè£¡çš„é€™äº›æ±è¥¿ 
             
           k = k - object;   
           
@@ -2287,7 +2287,7 @@ public:
               } // if 
               
                        
-            } // for °²³]°µ¥X¨Ó¬O(7)­n§â(,7,)³£¦s¶i mList->at( k ).str        
+            } // for å‡è¨­åšå‡ºä¾†æ˜¯(7)è¦æŠŠ(,7,)éƒ½å­˜é€² mList->at( k ).str        
  
             k = y;
           } // if
@@ -2306,12 +2306,12 @@ public:
             k = 3;        
           } // else
           */
-          hasBeenCheck = true; // ¦pªG³o­Óe1¤£¬O³Ì«á¤@­Ó¡A­n§R°£       
+          hasBeenCheck = true; // å¦‚æœé€™å€‹e1ä¸æ˜¯æœ€å¾Œä¸€å€‹ï¼Œè¦åˆªé™¤       
           
-          startIsbar = true; // ªì©l¤Æ 
-          isExp = false; // ªì©l¤Æ        
-          object = -1; // ªì©l¤Æ 
-          mcondList->clear(); // ªì©l¤Æ 
+          startIsbar = true; // åˆå§‹åŒ– 
+          isExp = false; // åˆå§‹åŒ–        
+          object = -1; // åˆå§‹åŒ– 
+          mcondList->clear(); // åˆå§‹åŒ– 
         }  // else       
       } // for
 
@@ -2320,16 +2320,16 @@ public:
     
     
     else if ( mList->at( k ).str == "\'" ) {
-      mcondList->clear(); // ªì©l¤Æ 
+      mcondList->clear(); // åˆå§‹åŒ– 
       gposition = k;
       DoQuoteForCond( mList->at( gposition ).str, gposition, 1 ); 
-      // =============(cond 'x) §R±¼'x¡Aµ¹§Ú (quote x)=============== 
+      // =============(cond 'x) åˆªæ‰'xï¼Œçµ¦æˆ‘ (quote x)=============== 
   
               
       if ( mList->at( k ).str == "(" ) {
         barcket++;
-        k++; // ( cond ( quote (+ 1 2 3) ))ªº quote
-        mList->erase( mList->begin()+k ); // §R±¼quote¡A³Ó(cond ((+ 1 2 3))) 
+        k++; // ( cond ( quote (+ 1 2 3) ))çš„ quote
+        mList->erase( mList->begin()+k ); // åˆªæ‰quoteï¼Œå‹(cond ((+ 1 2 3))) 
         if ( mList->at( k ).str == "(" ) barcket++;
         else if ( mList->at( k ).str == ")" ) barcket--;        
         
@@ -2347,7 +2347,7 @@ public:
               isbreak2 = true ;
               k-- ;
             } // if             
-          } // for ¬°¤F°µ»¼°j¡A§â­n»¼°jªºªF¦è¦s¶i·sªºList¡A¨Ã¥B§R±¼mList¸Ìªº³o¨ÇªF¦è 
+          } // for ç‚ºäº†åšéè¿´ï¼ŒæŠŠè¦éè¿´çš„æ±è¥¿å­˜é€²æ–°çš„Listï¼Œä¸¦ä¸”åˆªæ‰mListè£¡çš„é€™äº›æ±è¥¿ 
           
            k = k - object;  
             
@@ -2370,7 +2370,7 @@ public:
               isbreak2 = true ;
               y-- ;
             } // if                        
-          } // for °²³]°µ¥X¨Ó¬O(7)­n§â(,7,)³£¦s¶i mList->at( k ).str        
+          } // for å‡è¨­åšå‡ºä¾†æ˜¯(7)è¦æŠŠ(,7,)éƒ½å­˜é€² mList->at( k ).str        
       
           k = y;
         } // if
@@ -2388,13 +2388,13 @@ public:
           k = 3;        
         } // else
         */
-        hasBeenCheck = true; // ¦pªG³o­Óe1¤£¬O³Ì«á¤@­Ó¡A­n§R°£       
+        hasBeenCheck = true; // å¦‚æœé€™å€‹e1ä¸æ˜¯æœ€å¾Œä¸€å€‹ï¼Œè¦åˆªé™¤       
         
         
         
-        startIsbar = true; // ªì©l¤Æ 
-        isExp = false; // ªì©l¤Æ        
-        object = -1; // ªì©l¤Æ 
+        startIsbar = true; // åˆå§‹åŒ– 
+        isExp = false; // åˆå§‹åŒ–        
+        object = -1; // åˆå§‹åŒ– 
                 
         
         /*
@@ -2404,14 +2404,14 @@ public:
         if ( mList->at( k-1 ).str == "?" ) {
           temp.str = "< procedure " + mList->at( k-1 ).str + " >" ; 
           temp.type = "?" ;
-        } // if  e1 : function³B²z procedureªº³¡¤À 
+        } // if  e1 : functionè™•ç† procedureçš„éƒ¨åˆ† 
         
         else {
           temp.str = mList->at( k-1 ).str ; 
           temp.type = mList->at( k-1 ).type;
         } // else e1
         
-        } // if ²z½×¤W¤£¥i¯à¤£¬O¬A¸¹
+        } // if ç†è«–ä¸Šä¸å¯èƒ½ä¸æ˜¯æ‹¬è™Ÿ
         */
       } // if 
       
@@ -2438,8 +2438,8 @@ public:
 
     stringstream ss( temp.str );
     stringstream sss( temp.type );
-    temp.str = ""; // ªì©l¤Æ 
-    temp.type = "" ; // ªì©l¤Æ 
+    temp.str = ""; // åˆå§‹åŒ– 
+    temp.type = "" ; // åˆå§‹åŒ– 
     Data token;
     while ( ss >> token.str ) {
       
@@ -2471,13 +2471,13 @@ public:
     Data qq ;
     if ( p1_or_e1 == 1 ) {
       if ( ( gposition-1 < mList->size() ) && ( mList->at( gposition-1 ).str == "(" ) ) {
-        mList->erase( mList->begin()+gposition ); // §R' 
+        mList->erase( mList->begin()+gposition ); // åˆª' 
       } // if
       
       else {
         
         if ( mList->size() != 0 && gposition != 0 ) {
-          mList->erase( mList->begin()+gposition ); // §R'
+          mList->erase( mList->begin()+gposition ); // åˆª'
           qq.str = "quote";
           qq.type = "quote";        
           mList->insert( mList->begin()+gposition, qq ) ;
@@ -2495,7 +2495,7 @@ public:
         
       } // else
     } // if
-    else mList->erase( mList->begin()+gposition ); // §R' 
+    else mList->erase( mList->begin()+gposition ); // åˆª' 
   
   } // DoQuoteForCond()
   
@@ -2521,14 +2521,14 @@ public:
     
     if ( isRight ) {
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (> ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (> çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (> .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (> .....) çš„ )  
         
       } // while
       
@@ -2538,14 +2538,14 @@ public:
     } // if
     else {
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (> ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (> çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (> .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (> .....) çš„ )  
         
       } // while
       
@@ -2566,7 +2566,7 @@ public:
       string temp = "";
       int a = 0 ;
       for ( int n = 0 ; n < mList->at( i ).str.size() ; n++ ) {
-        if ( ( mList->at( i ).str[n] == '"' &&  ( n == 0 || n == mList->at( i ).str.size()-1 ) ) ) ; // ¤£­n¦s 
+        if ( ( mList->at( i ).str[n] == '"' &&  ( n == 0 || n == mList->at( i ).str.size()-1 ) ) ) ; // ä¸è¦å­˜ 
         else {
           temp.push_back( mList->at( i ).str[n] );
         } // else
@@ -2649,14 +2649,14 @@ public:
     if ( isRight ) {
       k = k - 1 ;
                
-      mList->erase( mList->begin()+k ) ; // delete (> ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (> çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (> .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (> .....) çš„ )  
         
       } // while
       
@@ -2668,14 +2668,14 @@ public:
     } // if
     else {
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (> ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (> çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (> .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (> .....) çš„ )  
         
       } // while
       
@@ -2689,17 +2689,17 @@ public:
   
   void Not( int k ) {
     
-    if ( mList->at( k+1 ).str == "nil" && mList->at( k+2 ).str == ")" ) { // ¥¿½Tªº¸Ü¤@©w·|¶i  
+    if ( mList->at( k+1 ).str == "nil" && mList->at( k+2 ).str == ")" ) { // æ­£ç¢ºçš„è©±ä¸€å®šæœƒé€²  
     
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (symbol? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (symbol? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (symbol? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (symbol? .....) çš„ )  
         
       } // while
       
@@ -2711,14 +2711,14 @@ public:
     else {
       
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (symbol? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (symbol? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (symbol? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (symbol? .....) çš„ )  
         
       } // while
       
@@ -2732,11 +2732,11 @@ public:
   
   void Caculate( int k ) { // ( + 3 5 6 )
   
-    int haveDot = 0 ; // ¦³¤p¼ÆÂI(¸É¹s¶i¦ì)
-    vector<Data> cacul ; // ¦s¼Æ¦r§Ç¦C 
+    int haveDot = 0 ; // æœ‰å°æ•¸é»(è£œé›¶é€²ä½)
+    vector<Data> cacul ; // å­˜æ•¸å­—åºåˆ— 
     bool isZero = false;
-    int isInt = 0; // §PÂ_¬O¤£¬O¾ã¼Æ 
-    double temp = 0; // ¦s¤Jtree¥Î 
+    int isInt = 0; // åˆ¤æ–·æ˜¯ä¸æ˜¯æ•´æ•¸ 
+    double temp = 0; // å­˜å…¥treeç”¨ 
     double number = 0;
     stringstream oss;
     string sValue ; 
@@ -2751,22 +2751,22 @@ public:
     int n = 1; 
     for (  ; n < cacul.size() ; n++ ) {
       for ( int p = 0 ; p < cacul[n].str.size() ; p++ ) 
-        if ( cacul[n].str[p] == '.' ) haveDot++ ;  // §PÂ_¦³µL¤p¼ÆÂI 
+        if ( cacul[n].str[p] == '.' ) haveDot++ ;  // åˆ¤æ–·æœ‰ç„¡å°æ•¸é» 
   
       stringstream ss( cacul[n].str );
       ss >> number;
 
       if ( number == ( int ) number && haveDot == 0 ) isInt++; 
-      // ³Ì«á­n¬İisInt¼Æ¶q¦³¨S¦³µ¥©ónªº¼Æ¶q(¥ş³£¬Oint)¡A­n§âtemp±qdouble->int 
+      // æœ€å¾Œè¦çœ‹isIntæ•¸é‡æœ‰æ²’æœ‰ç­‰æ–¼nçš„æ•¸é‡(å…¨éƒ½æ˜¯int)ï¼Œè¦æŠŠtempå¾double->int 
       
-      if ( n == 1 ) temp = number; // tempªì©l­È¬°²Ä¤@­Ó¼Æ¦r       
+      if ( n == 1 ) temp = number; // tempåˆå§‹å€¼ç‚ºç¬¬ä¸€å€‹æ•¸å­—       
       else if ( cacul[0].str == "+" ) temp += number;
       else if ( cacul[0].str == "-" ) temp -= number;
       else if ( cacul[0].str == "*" ) temp *= number;
       else if ( cacul[0].str == "/" && !isZero ) {
         if ( number == 0 || number == 0.0 || number == 0.00 || number == 0.000 ) {
-          temp = -1; // ¼È®É¦L-1¡AÀ³¬°error 
-          isZero = true; // °£0¡A¸õ¥X 
+          temp = -1; // æš«æ™‚å°-1ï¼Œæ‡‰ç‚ºerror 
+          isZero = true; // é™¤0ï¼Œè·³å‡º 
         } // if
         else temp /= number;
       } // else if
@@ -2798,7 +2798,7 @@ public:
     
     else {
       stringstream ss;
-      ss << fixed << setprecision( 3 ) << temp; // ½Õ¾ã 
+      ss << fixed << setprecision( 3 ) << temp; // èª¿æ•´ 
       token.str = ss.str();
     } // else 
         
@@ -2816,14 +2816,14 @@ public:
          && mList->at( k+3 ).str == ")" ) {
     
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (eqv? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (eqv? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (eqv? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (eqv? .....) çš„ )  
         
       } // while
       
@@ -2837,14 +2837,14 @@ public:
               && mList->at( k+3 ).str == ")" ) {
            
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (eqv? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (eqv? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (eqv? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (eqv? .....) çš„ )  
         
       } // while
       
@@ -2858,14 +2858,14 @@ public:
               && mList->at( k+3 ).str == ")" ) {
            
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (eqv? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (eqv? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (eqv? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (eqv? .....) çš„ )  
         
       } // while
       
@@ -2874,7 +2874,7 @@ public:
       mList->insert( mList->begin()+k, temp ) ;
            
     } // else if
-    else { // ¬O¬Û¦P®Ú·½defineªº¸Ü¤~¹ï  
+    else { // æ˜¯ç›¸åŒæ ¹æºdefineçš„è©±æ‰å°  
       
       bool isDefine = true, isbreak = false ;
       string compare1, compare2 ;
@@ -2914,14 +2914,14 @@ public:
       // cout << "_" << type4<<"_"<<type44 << "_" ;
       if ( isDefine && compare1 == compare2 ) {
         k = k - 1 ;
-        mList->erase( mList->begin()+k ) ; // delete (eqv? ªº (  
+        mList->erase( mList->begin()+k ) ; // delete (eqv? çš„ (  
         int bracket = 1 ;
         while ( bracket != 0 ) {
           
           if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
           else if ( mList->at( k ).str == ")" ) bracket-- ;
           
-          mList->erase( mList->begin()+k ) ; // until delete (eqv? .....) ªº )  
+          mList->erase( mList->begin()+k ) ; // until delete (eqv? .....) çš„ )  
           
         } // while
         
@@ -2931,14 +2931,14 @@ public:
       } // if
       else {
         k = k - 1 ;
-        mList->erase( mList->begin()+k ) ; // delete (eqv? ªº (  
+        mList->erase( mList->begin()+k ) ; // delete (eqv? çš„ (  
         int bracket = 1 ;
         while ( bracket != 0 ) {
           
           if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
           else if ( mList->at( k ).str == ")" ) bracket-- ;
           
-          mList->erase( mList->begin()+k ) ; // until delete (eqv? .....) ªº )  
+          mList->erase( mList->begin()+k ) ; // until delete (eqv? .....) çš„ )  
           
         } // while
         
@@ -2981,14 +2981,14 @@ public:
     
     if ( compare1 == compare2 ) {
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (equal? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (equal? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (equal? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (equal? .....) çš„ )  
         
       } // while
       
@@ -2998,14 +2998,14 @@ public:
     } // if
     else {
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (equal? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (equal? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (equal? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (equal? .....) çš„ )  
         
       } // while
       
@@ -3033,14 +3033,14 @@ public:
       if ( isList ) {
         isIf = true ;
         k = k - 1 ;
-        mList->erase( mList->begin()+k ) ; // delete (list? ªº (  
+        mList->erase( mList->begin()+k ) ; // delete (list? çš„ (  
         int bracket = 1 ;
         while ( bracket != 0 ) {
           
           if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
           else if ( mList->at( k ).str == ")" ) bracket-- ;
           
-          mList->erase( mList->begin()+k ) ; // until delete (list? .....) ªº )  
+          mList->erase( mList->begin()+k ) ; // until delete (list? .....) çš„ )  
           
         } // while
         
@@ -3055,14 +3055,14 @@ public:
       
       isIf = true ;
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (list? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (list? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (list? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (list? .....) çš„ )  
         
       } // while
       
@@ -3074,14 +3074,14 @@ public:
     
     if ( !isIf ) {
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (list? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (list? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (list? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (list? .....) çš„ )  
         
       } // while
       
@@ -3094,17 +3094,17 @@ public:
   
   void Symbol_is( int k ) {
     
-    if ( mList->at( k+1 ).type == "symbol" && mList->at( k+2 ).str == ")" ) { // ¥¿½Tªº¸Ü¤@©w·|¶i  
+    if ( mList->at( k+1 ).type == "symbol" && mList->at( k+2 ).str == ")" ) { // æ­£ç¢ºçš„è©±ä¸€å®šæœƒé€²  
     
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (symbol? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (symbol? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (symbol? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (symbol? .....) çš„ )  
         
       } // while
       
@@ -3116,14 +3116,14 @@ public:
     else {
       
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (symbol? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (symbol? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (symbol? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (symbol? .....) çš„ )  
         
       } // while
       
@@ -3138,17 +3138,17 @@ public:
   void Boolean_is( int k ) {
     
     if ( ( mList->at( k+1 ).str == "#t" || mList->at( k+1 ).str == "nil" )
-         && mList->at( k+2 ).str == ")" ) { // ¥¿½Tªº¸Ü¤@©w·|¶i  
+         && mList->at( k+2 ).str == ")" ) { // æ­£ç¢ºçš„è©±ä¸€å®šæœƒé€²  
     
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (boolean? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (boolean? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (boolean? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (boolean? .....) çš„ )  
         
       } // while
       
@@ -3160,14 +3160,14 @@ public:
     else {
       
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (boolean? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (boolean? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (boolean? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (boolean? .....) çš„ )  
         
       } // while
       
@@ -3181,17 +3181,17 @@ public:
   
   void String_is( int k ) {
     
-    if ( mList->at( k+1 ).type == "string" && mList->at( k+2 ).str == ")" ) { // ¥¿½Tªº¸Ü¤@©w·|¶i  
+    if ( mList->at( k+1 ).type == "string" && mList->at( k+2 ).str == ")" ) { // æ­£ç¢ºçš„è©±ä¸€å®šæœƒé€²  
     
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (string? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (string? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (string? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (string? .....) çš„ )  
         
       } // while
       
@@ -3203,14 +3203,14 @@ public:
     else {
       
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (string? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (string? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (string? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (string? .....) çš„ )  
         
       } // while
       
@@ -3224,17 +3224,17 @@ public:
   
   void Real_Number_is( int k ) {
     
-    if ( mList->at( k+1 ).type == "sign" && mList->at( k+2 ).str == ")" ) { // ¥¿½Tªº¸Ü¤@©w·|¶i  
+    if ( mList->at( k+1 ).type == "sign" && mList->at( k+2 ).str == ")" ) { // æ­£ç¢ºçš„è©±ä¸€å®šæœƒé€²  
     
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (Real_Number? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (Real_Number? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (Real_Number? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (Real_Number? .....) çš„ )  
         
       } // while
       
@@ -3246,14 +3246,14 @@ public:
     else {
       
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (Real_Number? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (Real_Number? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (Real_Number? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (Real_Number? .....) çš„ )  
         
       } // while
       
@@ -3269,17 +3269,17 @@ public:
     
     if ( ( mList->at( k+1 ).type == "sign" || mList->at( k+1 ).type == "string" 
            || mList->at( k+1 ).str == "#t" || mList->at( k+1 ).str == "nil" ) 
-         && mList->at( k+2 ).str == ")" ) { // ¥¿½Tªº¸Ü¤@©w·|¶i  
+         && mList->at( k+2 ).str == ")" ) { // æ­£ç¢ºçš„è©±ä¸€å®šæœƒé€²  
            
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (atom? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (atom? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (atom? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (atom? .....) çš„ )  
         
       } // while
       
@@ -3291,14 +3291,14 @@ public:
     else {
       
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (atom? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (atom? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (atom? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (atom? .....) çš„ )  
         
       } // while
       
@@ -3313,7 +3313,7 @@ public:
   void Integer_is( int k ) {
     
     bool isIf = false ;
-    if ( mList->at( k+1 ).type == "sign" && mList->at( k+2 ).str == ")" ) { // ¥¿½Tªº¸Ü¤@©w·|¶i  
+    if ( mList->at( k+1 ).type == "sign" && mList->at( k+2 ).str == ")" ) { // æ­£ç¢ºçš„è©±ä¸€å®šæœƒé€²  
       
       bool isInteger = true ;
       for ( int i = 0 ; i < mList->at( k+1 ).str.size() ; i++ ) {   
@@ -3323,14 +3323,14 @@ public:
       if ( isInteger ) {
         isIf = true ;
         k = k - 1 ;
-        mList->erase( mList->begin()+k ) ; // delete (interger? ªº (  
+        mList->erase( mList->begin()+k ) ; // delete (interger? çš„ (  
         int bracket = 1 ;
         while ( bracket != 0 ) {
           
           if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
           else if ( mList->at( k ).str == ")" ) bracket-- ;
           
-          mList->erase( mList->begin()+k ) ; // until delete (interger? .....) ªº )  
+          mList->erase( mList->begin()+k ) ; // until delete (interger? .....) çš„ )  
           
         } // while
         
@@ -3343,14 +3343,14 @@ public:
     
     if ( !isIf ) {
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (interger? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (interger? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (interger? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (interger? .....) çš„ )  
         
       } // while
       
@@ -3363,17 +3363,17 @@ public:
   
   void Pair_is( int k ) {
     
-    if ( mList->at( k+1 ).str == "(" ) { // ¥¿½Tªº¸Ü¤@©w·|¶i  
+    if ( mList->at( k+1 ).str == "(" ) { // æ­£ç¢ºçš„è©±ä¸€å®šæœƒé€²  
   
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (pair? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (pair? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (pair? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (pair? .....) çš„ )  
         
       } // while
       
@@ -3382,17 +3382,17 @@ public:
       mList->insert( mList->begin()+k, temp ) ;
       
     } // if
-    else { // pair?«á­±¤£¬O ( 
+    else { // pair?å¾Œé¢ä¸æ˜¯ ( 
         
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (pair? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (pair? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (pair? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (pair? .....) çš„ )  
         
       } // while
       
@@ -3408,14 +3408,14 @@ public:
     
     if ( mList->at( k+1 ).str == "nil" && mList->at( k+2 ).str == ")" ) { // (null? nil )
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (pair? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (pair? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (pair? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (pair? .....) çš„ )  
         
       } // while
       
@@ -3425,14 +3425,14 @@ public:
     } // if
     else {
       k = k - 1 ;
-      mList->erase( mList->begin()+k ) ; // delete (pair? ªº (  
+      mList->erase( mList->begin()+k ) ; // delete (pair? çš„ (  
       int bracket = 1 ;
       while ( bracket != 0 ) {
         
         if ( mList->at( k ).str == "(" || mList->at( k ).str == "\'" ) bracket++ ;
         else if ( mList->at( k ).str == ")" ) bracket-- ;
         
-        mList->erase( mList->begin()+k ) ; // until delete (pair? .....) ªº )  
+        mList->erase( mList->begin()+k ) ; // until delete (pair? .....) çš„ )  
         
       } // while
       
@@ -3525,7 +3525,7 @@ public:
     string type3 = "" ;
     bool hasIn = false;
     
-    if ( mList->at( k+1 ).str == "(" ) { // ¥¿½Tªº¸Ü¤@©w·|¶i  
+    if ( mList->at( k+1 ).str == "(" ) { // æ­£ç¢ºçš„è©±ä¸€å®šæœƒé€²  
       
       int j = k+2, bracket = 1 ;
       bool isbreak = false ;
@@ -3546,9 +3546,9 @@ public:
 
       } // for
       
-      j-- ; // ¦^¨ì(  
+      j-- ; // å›åˆ°(  
       
-      if ( mList->at( j ).str == "(" ) { // ¥¿½Tªº¸Ü¤@©w·|¶i  
+      if ( mList->at( j ).str == "(" ) { // æ­£ç¢ºçš„è©±ä¸€å®šæœƒé€²  
         
         j++ ;
         type4 = mList->at( j ).type4 ;
@@ -3650,7 +3650,7 @@ public:
     
   } // EndOfCheckDefine()
 
-  void CheckDefine( int i, int end ) {  // ¸Ì­±ªºªF¦è¦³¨S¦³³Qdefine¨ì  ¦³ªº¸Ü´N§âdefineªº¤º®eÂĞ»\µ¹¥L  
+  void CheckDefine( int i, int end ) {  // è£¡é¢çš„æ±è¥¿æœ‰æ²’æœ‰è¢«defineåˆ°  æœ‰çš„è©±å°±æŠŠdefineçš„å…§å®¹è¦†è“‹çµ¦ä»–  
     
     bool isbreak = false ;
     /*
@@ -3658,7 +3658,7 @@ public:
       mList->erase( mList->begin()+i+1 ) ;
       int j = i, bracket = 0 ;
       bool isbreak = false ;
-      for ( ; !isbreak && j < mList->size() ; j++ ) {  // ¤@ª½¨ì'¹ïÀ³ªº) ¤£°µ¨Æ  
+      for ( ; !isbreak && j < mList->size() ; j++ ) {  // ä¸€ç›´åˆ°'å°æ‡‰çš„) ä¸åšäº‹  
         if ( mList->at( j ).str == "\'" ) bracket++ ;
         else if ( mList->at( j ).str == "(" ) bracket++ ;
         else if ( mList->at( j ).str == ")" ) bracket-- ;
@@ -3763,7 +3763,7 @@ public:
       gisCond = -2 ;
     } // else if
     
-     // ¤@¯ë±¡ªp  
+     // ä¸€èˆ¬æƒ…æ³  
     else { 
       for ( ; !isbreak && i < end ; i++ ) {
       
@@ -3821,7 +3821,7 @@ public:
       int bracket = 0, j = i ; 
       
       bool isbreak = false ;
-      for ( ; !isbreak && j < mList->size() ; j++ ) {  // cons«á­±¨â­Ólist¶¡¥['.'  
+      for ( ; !isbreak && j < mList->size() ; j++ ) {  // conså¾Œé¢å…©å€‹listé–“åŠ '.'  
         if ( mList->at( j ).str == "'" ) bracket++ ;
         else if ( mList->at( j ).str == "(" ) bracket++ ;
         else if ( mList->at( j ).str == ")" ) bracket-- ;
@@ -3875,7 +3875,7 @@ public:
       i -= 2 ;
       int j = i+1 ;
       bool isbreak = false ;
-      for ( ; !isbreak && j < mList->size() ; j++ ) {  // do§R±¼quote«á­±ªº')'  
+      for ( ; !isbreak && j < mList->size() ; j++ ) {  // doåˆªæ‰quoteå¾Œé¢çš„')'  
         if ( mList->at( j ).type == "quote" ) forDeleteBracket++ ;
         else if ( mList->at( j ).type == "left_bracket" ) forDeleteBracket++ ;
         else if ( mList->at( j ).type == "right_bracket" ) forDeleteBracket-- ;
@@ -3925,7 +3925,7 @@ public:
       
       int j = k, bracket = 0 ;
       bool isbreak = false ;
-      for ( ; !isbreak && j < mcondList->size() ; j++ ) {  // ¤@ª½¨ì'¹ïÀ³ªº) ¤£°µ¨Æ  
+      for ( ; !isbreak && j < mcondList->size() ; j++ ) {  // ä¸€ç›´åˆ°'å°æ‡‰çš„) ä¸åšäº‹  
         if ( mcondList->at( j ).str == "\'" ) bracket++ ;
         else if ( mcondList->at( j ).str == "(" ) bracket++ ;
         else if ( mcondList->at( j ).str == ")" ) bracket-- ;
@@ -3954,7 +3954,7 @@ public:
       if ( k+1 < mcondList->size() ) MainForCond( k+1 ) ;
       
     } // if
-    else if ( mcondList->at( k ).str == "quote" ) { // ¸ò¤W­±¦P²z  
+    else if ( mcondList->at( k ).str == "quote" ) { // è·Ÿä¸Šé¢åŒç†  
       ghaveDoQuote = true ;
       int end = Quote( k+3 ) ;
       
@@ -4176,7 +4176,7 @@ public:
         
       } // else
       
-      if ( checkIfNeedDoFuncAgain ) { // «e­±°µ§¹«á¦^¶ÇªºªF¦è¬O¤@­Ófunc¦W¦r¡A´N­n¦A°µfunc  
+      if ( checkIfNeedDoFuncAgain ) { // å‰é¢åšå®Œå¾Œå›å‚³çš„æ±è¥¿æ˜¯ä¸€å€‹funcåå­—ï¼Œå°±è¦å†åšfunc  
         k -= 1 ;
         if ( k-1 >= 0 && mcondList->at( k-1 ).str == "(" ) {
           
@@ -4399,8 +4399,8 @@ int main() {
   bool isbreak = false ;
   cout << "Welcome to OurScheme!" << endl ;
   // cin.open( mFileName.c_str(), ios::in ) ;
-  gtest.ch = cin.get() ; // Åª±¼ÃD¸¹  
-  gtest.ch = cin.get() ; // Åª±¼ÃD¸¹«á\n  
+  gtest.ch = cin.get() ; // è®€æ‰é¡Œè™Ÿ  
+  gtest.ch = cin.get() ; // è®€æ‰é¡Œè™Ÿå¾Œ\n  
   
   gtest.ch = cin.get() ;
   first.Cond_fuc() ;
@@ -4497,7 +4497,7 @@ int main() {
       bool isisbreak = false ;
       if ( gline == -1 ) gline++ ;
       gline++ ;
-      gcolumn-- ; // ¦b³o¸Ì±q0¶}©l    
+      gcolumn-- ; // åœ¨é€™è£¡å¾0é–‹å§‹    
       while ( gtest.ch != EOF && !isisbreak && gtest.ch != ' ' && gtest.ch != '\t' && gtest.ch != '\n' ) {
         if ( cin.peek() == '"' || cin.peek() == ';' || cin.peek() == '('
              || cin.peek() == ')' || cin.peek() == ' ' || cin.peek() == '\t'
